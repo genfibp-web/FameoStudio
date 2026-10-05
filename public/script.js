@@ -1,5 +1,5 @@
 // ============================================
-// FÁMEO STUDIO - SCRIPT DEFINITIVO
+// FÁMEO STUDIO - SCRIPT DEFINITIVO (CORREGIDO)
 // ============================================
 console.log('🚀 Fameo Studio iniciando...');
 
@@ -95,55 +95,22 @@ function inicializarHeroScroll() {
 }
 
 // ============================================
-// 4. ESTADÍSTICAS
+// 4. ESTADÍSTICAS — CORREGIDO
 // ============================================
-async function cargarEstadisticas() {
-    const fallback = { 
-        instagram: 13661733,
-        youtube: 58298531,
-        tiktok: 60200000,
-        threads: 787000,
-        facebook: 1800000
-    };
-    
-    let mapaStats = fallback;
-    
-    try {
-        const respuesta = await fetch('/api/stats');
-        const stats = await respuesta.json();
-        mapaStats = {
-            instagram: stats.instagram?.vistas || fallback.instagram,
-            youtube: stats.youtube?.vistas || fallback.youtube,
-            tiktok: stats.tiktok?.vistas || fallback.tiktok,
-            threads: stats.threads?.vistas || fallback.threads,
-            facebook: stats.facebook?.vistas || fallback.facebook
-        };
-        console.log('✅ Estadísticas del backend');
-    } catch (error) {
-        console.log('⚠️ Backend offline, usando fallback');
-    }
-    
-    document.querySelectorAll('.stat-card').forEach(card => {
-        const plataforma = card.querySelector('h3').textContent.toLowerCase().trim();
-        const numeroEl = card.querySelector('.numero');
-        if (mapaStats[plataforma]) {
-            numeroEl.setAttribute('data-target', mapaStats[plataforma]);
-        }
-    });
-}
-
 function iniciarContadores() {
     const statsSection = document.querySelector('.estadisticas');
     if (!statsSection) return;
     
+    let contadoresIniciados = false;
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !contadoresIniciados) {
+                contadoresIniciados = true;
+                
                 document.querySelectorAll('.numero').forEach((contador) => {
-                    if (contador.dataset.animado) return;
                     const target = +contador.getAttribute('data-target');
                     if (!target) return;
-                    contador.dataset.animado = 'true';
                     
                     const duracion = 1800;
                     const pasos = 50;
@@ -160,12 +127,54 @@ function iniciarContadores() {
                         }
                     }, duracion / pasos);
                 });
+                
                 observer.disconnect();
             }
         });
     }, { threshold: 0.2 });
     
     observer.observe(statsSection);
+}
+
+async function cargarEstadisticas() {
+    const fallback = { 
+        instagram: 13661733,
+        youtube: 58298531,
+        tiktok: 60200000,
+        threads: 787000,
+        facebook: 1800000
+    };
+    
+    let mapaStats = fallback;
+    
+    try {
+        const respuesta = await fetch('/api/stats');
+        if (!respuesta.ok) throw new Error('Backend no responde');
+        const stats = await respuesta.json();
+        mapaStats = {
+            instagram: stats.instagram?.vistas || fallback.instagram,
+            youtube: stats.youtube?.vistas || fallback.youtube,
+            tiktok: stats.tiktok?.vistas || fallback.tiktok,
+            threads: stats.threads?.vistas || fallback.threads,
+            facebook: stats.facebook?.vistas || fallback.facebook
+        };
+        console.log('✅ Estadísticas del backend');
+    } catch (error) {
+        console.log('⚠️ Backend offline, usando fallback');
+    }
+    
+    // Setear data-target ANTES de iniciar contadores
+    document.querySelectorAll('.stat-card').forEach(card => {
+        const plataforma = card.querySelector('h3').textContent.toLowerCase().trim();
+        const numeroEl = card.querySelector('.numero');
+        if (mapaStats[plataforma]) {
+            numeroEl.setAttribute('data-target', mapaStats[plataforma]);
+        }
+    });
+    
+    // ⚡ AHORA SÍ: iniciar contadores DESPUÉS de setear los data-target
+    iniciarContadores();
+    console.log('✅ Contadores iniciados con datos reales');
 }
 
 // ============================================
@@ -318,9 +327,9 @@ document.querySelectorAll('.carta-video').forEach((carta) => {
 // ============================================
 window.addEventListener('load', () => {
     console.log('📄 Página cargada');
-    cargarEstadisticas();
-    iniciarContadores();
     inicializarAnimaciones();
     inicializarHeroScroll();
+    // ⚡ Cargar estadísticas (esto internamente llama a iniciarContadores)
+    cargarEstadisticas();
     console.log('✅ Listo');
 });
