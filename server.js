@@ -32,6 +32,7 @@ app.get('/api/stats', async (req, res) => {
             instagram: { vistas: 13661733 },
             youtube: { vistas: 58298531 },
             tiktok: { vistas: 60200000 },
+        
             threads: { vistas: 787000 },
             facebook: { vistas: 1800000 },
             total: 134758264
