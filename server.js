@@ -29,6 +29,7 @@ db.run(`CREATE TABLE IF NOT EXISTS leads (
 app.get('/api/stats', async (req, res) => {
     try {
         const statsData = {
+<<<<<<< HEAD
             instagram: { vistas: 13661733 },
             youtube: { vistas: 58298531 },
             tiktok: { vistas: 60200000 },
@@ -36,6 +37,13 @@ app.get('/api/stats', async (req, res) => {
             threads: { vistas: 787000 },
             facebook: { vistas: 1800000 },
             total: 134758264
+=======
+            instagram: { vistas: 9091004, seguidores: 0 },
+            youtube: { vistas: 3954610, suscriptores: 40511 },
+            tiktok: { vistas: 1800000, meGusta: 84000 },
+            facebook: { vistas: 1720937 },
+            total: 16546551
+>>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
         };
         res.json(statsData);
     } catch (error) {
