@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fameo Studio | Media Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="logo.webp" type="image/webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SVG de degradados dorados -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFF4B8"/>
+                <stop offset="30%" stop-color="#FFD966"/>
+                <stop offset="60%" stop-color="#E8B83A"/>
+                <stop offset="100%" stop-color="#A87A1A"/>
+            </linearGradient>
+            <linearGradient id="redGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#D42E2E"/>
+                <stop offset="100%" stop-color="#8B1414"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="#inicio" class="logo" aria-label="Fameo Studio - Inicio">
+            <img src="logo.webp" alt="Fameo Studio">
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#sobre" class="nav-link">Nosotros</a></li>
+            <li><a href="#estadisticas" class="nav-link">Métricas</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#faq" class="nav-link">FAQ</a></li>
+            <li class="nav-cta-item"><a href="#contacto" class="btn-contacto">Contactar</a></li>
+        </ul>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="mic-decoration mic-top-right">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="9" y="2" width="6" height="13" rx="3" fill="url(#goldGradient)"/>
+                <path d="M5 11c0 3.9 3.1 7 7 7s7-3.1 7-7" stroke="url(#goldGradient)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <line x1="12" y1="18" x2="12" y2="22" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="8" y1="22" x2="16" y2="22" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="mic-decoration mic-bottom-left">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="9" y="2" width="6" height="13" rx="3" fill="url(#goldGradient)"/>
+                <path d="M5 11c0 3.9 3.1 7 7 7s7-3.1 7-7" stroke="url(#goldGradient)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <line x1="12" y1="18" x2="12" y2="22" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="8" y1="22" x2="16" y2="22" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <div class="crown-decoration">
+                <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 60 L10 30 L25 45 L50 15 L75 45 L90 30 L90 60 Z" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1.5" stroke-linejoin="round"/>
+                    <circle cx="10" cy="25" r="5" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                    <circle cx="50" cy="10" r="6" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                    <circle cx="90" cy="25" r="5" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                    <rect x="8" y="58" width="84" height="8" rx="2" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                </svg>
+            </div>
+            <div class="hero-logo">
+                <img src="logo.webp" alt="Fameo Studio">
+            </div>
+            <h1 class="titulo">FAMEO STUDIO</h1>
+            <div class="gold-divider"></div>
+            <p class="subtitulo">El vehículo de entretenimiento que conecta marcas con más de 134 Millones de visualizaciones en LATAM.</p>
+            <a href="#estadisticas" class="btn-primario">Ver Métricas</a>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="sobre" id="sobre">
+        <div class="sobre-container">
+            <div class="sobre-text">
+                <span class="tag">Quiénes Somos</span>
+                <h2 class="sobre-title">El medio que <span class="text-gold">mueve masas</span> en el entretenimiento</h2>
+                <p class="sobre-p"><strong>Fameo Studio</strong> es el canal de referencia en farándula y espectáculos de Latinoamerica. No solo informamos: <em>conectamos marcas con millones de personas que viven, sienten y comparten el entretenimiento cada día.</em></p>
+                <p class="sobre-p">Mientras otros medios compiten por seguidores, nosotros <strong>dominamos el algoritmo</strong>. El <span class="text-gold">98.1% de nuestra audiencia</span> son personas que aún no nos siguen pero sí nos ven — exactamente el público fresco y nuevo que tu marca necesita para crecer.</p>
+                
+                <div class="sobre-pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="none" stroke="url(#goldGradient)" stroke-width="1.5"/><circle cx="12" cy="12" r="6" fill="none" stroke="url(#goldGradient)" stroke-width="1.5"/><circle cx="12" cy="12" r="2.5" fill="url(#goldGradient)"/></svg></div>
+                        <div><h4>Precisión</h4><p>Contenido que se viraliza en horas, no en semanas.</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2 L4 14 L11 14 L10 22 L20 9 L13 9 Z" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="0.5" stroke-linejoin="round"/></svg></div>
+                        <div><h4>Velocidad</h4><p>Producimos en tiempo real. Si pasa, lo cubrimos.</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3,17 9,11 13,15 21,7" fill="none" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15,7 21,7 21,13" fill="none" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="21" x2="21" y2="21" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4"/></svg></div>
+                        <div><h4>Resultados</h4><p>Métricas transparentes. Sin promesas vacías.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sobre-side">
+                <div class="sobre-card">
+                    <span class="tag">Desde</span>
+                    <p class="sobre-stat-big">2025</p>
+                    <span class="sobre-stat-label">Cubriendo la farándula</span>
+                </div>
+                <div class="sobre-card sobre-card-accent">
+                    <span class="tag">Compromiso</span>
+                    <p class="sobre-stat-text">3 alianzas máximo por trimestre.</p>
+                    <span class="sobre-stat-label">Para garantizar resultados reales</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <!-- ESTADÍSTICAS -->
+<section class="estadisticas" id="estadisticas">
+    <h2 class="section-title">Alcance Comprobado</h2>
+    <p class="estadisticas-sub">Más de <strong>134 Millones de visualizaciones</strong> acumuladas en todas nuestras plataformas.</p>
+    <div class="grid-stats">
+        <div class="stat-card">
+            <h3>Instagram</h3>
+            <p class="numero" data-target="13661733">0</p>
+            <span>Visualizaciones</span>
+        </div>
+        <div class="stat-card">
+            <h3>YouTube</h3>
+            <p class="numero" data-target="58298531">0</p>
+            <span>Visualizaciones</span>
+        </div>
+        <div class="stat-card">
+            <h3>TikTok</h3>
+            <p class="numero" data-target="60200000">0</p>
+            <span>Visualizaciones</span>
+        </div>
+        <div class="stat-card">
+            <h3>Threads</h3>
+            <p class="numero" data-target="787000">0</p>
+            <span>Visualizaciones</span>
+        </div>
+        <div class="stat-card">
+            <h3>Facebook</h3>
+            <p class="numero" data-target="1800000">0</p>
+            <span>Visualizaciones</span>
+        </div>
+    </div>
+</section>
+
+    <!-- AUDIENCIA -->
+    <section class="audiencia" id="audiencia">
+        <h2 class="section-title">Penetración de Audiencia</h2>
+        <p>El <strong>98.1%</strong> de nuestras visualizaciones provienen de <strong>no seguidores</strong>.</p>
+        <p class="highlight">Somos el vehículo perfecto para que tu marca llegue a nuevos mercados.</p>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios" id="servicios">
+        <div class="servicios-header">
+            <span class="tag">Nuestros Paquetes</span>
+            <h2 class="section-title">Formatos de Colaboración</h2>
+            <p class="servicios-sub">Elige el nivel de impacto que tu marca necesita. Todos los paquetes incluyen métricas transparentes y reportes de resultados.</p>
+        </div>
+
+        <div class="grid-servicios">
+            <div class="servicio-card">
+                <div class="servicio-badge">Esencial</div>
+                <h3 class="servicio-title">Mención en Reel</h3>
+                <p class="servicio-desc">Tu marca aparece mencionada en uno de nuestros Reels virales del momento.</p>
+                <ul class="servicio-lista">
+                    <li>1 mención integrada en video</li>
+                    <li>Duración mínima de 5 segundos</li>
+                    <li>Publicado en IG + TikTok</li>
+                    <li>Etiqueta a tu cuenta oficial</li>
+                </ul>
+                <a href="#contacto" class="btn-servicio">Solicitar Propuesta</a>
+            </div>
+
+            <div class="servicio-card servicio-card-destacado">
+                <div class="servicio-badge servicio-badge-gold">Más Solicitado</div>
+                <h3 class="servicio-title">Video Dedicado</h3>
+                <p class="servicio-desc">Un video completo, producido 100% para tu marca, con narrativa adaptada a nuestra audiencia.</p>
+                <ul class="servicio-lista">
+                    <li>Video exclusivo de 30-60 segundos</li>
+                    <li>Guión creativo personalizado</li>
+                    <li>Publicado en IG + TikTok + YouTube</li>
+                    <li>Uso de derechos para tus redes</li>
+                    <li>Reporte de métricas a los 7 días</li>
+                </ul>
+                <a href="#contacto" class="btn-servicio btn-servicio-gold">Solicitar Propuesta</a>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-badge">Premium</div>
+                <h3 class="servicio-title">Campaña Mensual</h3>
+                <p class="servicio-desc">Presencia continua de tu marca durante 30 días. Ideal para lanzamientos o posicionamiento sostenido.</p>
+                <ul class="servicio-lista">
+                    <li>4 videos dedicados al mes</li>
+                    <li>8 menciones en Reels virales</li>
+                    <li>Historias semanales</li>
+                    <li>Prioridad en tendencias</li>
+                    <li>Reporte mensual detallado</li>
+                </ul>
+                <a href="#contacto" class="btn-servicio">Solicitar Propuesta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPROMISO -->
+    <section class="compromiso" id="compromiso">
+        <div class="compromiso-header">
+            <span class="tag">Nuestro Compromiso</span>
+            <h2 class="section-title">Lo que garantizamos</h2>
+            <p class="compromiso-sub">Sin letra pequeña. Sin promesas vacías. Estos son los compromisos que asumimos con cada marca que trabaja con nosotros.</p>
+        </div>
+
+        <div class="grid-compromisos">
+            <div class="compromiso-card">
+                <div class="compromiso-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12 L11 14 L16 9 M21 12 C21 16.97 16.97 21 12 21 C7.03 21 3 16.97 3 12 C3 7.03 7.03 3 12 3 C16.97 3 21 7.03 21 12 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="compromiso-title">Reporte a los 7 días</h3>
+                <p class="compromiso-desc">Después de cada campaña, recibes un PDF con métricas verificables: vistas, alcance, interacción y capturas.</p>
+            </div>
+            <div class="compromiso-card">
+                <div class="compromiso-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><polyline points="12,7 12,12 16,14" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="compromiso-title">Respuesta en 24 horas</h3>
+                <p class="compromiso-desc">Toda solicitud de propuesta recibe una respuesta personalizada en menos de un día hábil. Sin bots, sin plantillas.</p>
+            </div>
+            <div class="compromiso-card">
+                <div class="compromiso-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2 L4 6 L4 12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 L20 6 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12 L11 14 L15 10" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="compromiso-title">Sin exclusividad forzada</h3>
+                <p class="compromiso-desc">Trabajas con nosotros cuando quieras, como quieras. No firmamos contratos largos ni cláusulas que te aten.</p>
+            </div>
+            <div class="compromiso-card">
+                <div class="compromiso-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17 L9 11 L13 15 L21 7 M21 7 L21 13 M21 7 L15 7" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="compromiso-title">Optimización continua</h3>
+                <p class="compromiso-desc">Si un formato funciona mejor que otro, lo replicamos. Tu inversión siempre está en el formato de mayor rendimiento.</p>
+            </div>
+        </div>
+
+        <div class="trust-bar">
+            <span class="trust-bar-label">Contenido activo y verificado en</span>
+            <div class="trust-bar-icons">
+                <div class="trust-icon" title="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="url(#goldGradient)"/></svg></div>
+                <div class="trust-icon" title="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><polygon points="10,9 10,15 15,12" fill="url(#goldGradient)"/></svg></div>
+                <div class="trust-icon" title="TikTok"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 3 C16 3 16.5 6 19 7 L19 10 C17.5 10 16 9 16 9 L16 15 C16 18.3 13.3 21 10 21 C6.7 21 4 18.3 4 15 C4 11.7 6.7 9 10 9 L10 12.2 C8.5 12.2 7.2 13.4 7.2 15 C7.2 16.6 8.5 17.8 10 17.8 C11.5 17.8 12.8 16.6 12.8 15 L12.8 3 Z" fill="url(#goldGradient)"/></svg></div>
+                <div class="trust-icon" title="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 8 L14 6 C14 5.2 14.5 5 15 5 L17 5 L17 2 L14.5 2 C12 2 11 3.5 11 5.5 L11 8 L9 8 L9 11 L11 11 L11 21 L14 21 L14 11 L16.5 11 L17 8 Z" fill="url(#goldGradient)"/></svg></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="faq-header">
+            <span class="tag">Preguntas Frecuentes</span>
+            <h2 class="section-title">Antes de escribirnos</h2>
+            <p class="faq-sub">Las respuestas a las dudas más comunes de las marcas.</p>
+        </div>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary><span>¿Cuánto cuesta trabajar con Fameo Studio?</span><span class="faq-icon">+</span></summary>
+                <div class="faq-answer"><p>Cada campaña es diferente. Los precios varían según el formato (mención, video dedicado o campaña mensual), la duración y los objetivos de tu marca. Escríbenos con tu presupuesto estimado y te enviamos una propuesta personalizada sin compromiso en menos de 24 horas.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary><span>¿En qué plataformas publican el contenido?</span><span class="faq-icon">+</span></summary>
+                <div class="faq-answer"><p>Distribuimos el contenido en Instagram, TikTok, YouTube y Facebook. La combinación de plataformas se define según el formato que contrates. En todos los casos, el contenido queda publicado en al menos 2 plataformas para maximizar el alcance.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary><span>¿Cuánto tardan en publicar desde que apruebo la propuesta?</span><span class="faq-icon">+</span></summary>
+                <div class="faq-answer"><p>Entre 5 y 10 días hábiles desde la aprobación final del guion. Esto nos permite producir un contenido de calidad que respete la imagen de tu marca y esté alineado con la tendencia del momento.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary><span>¿Puedo usar el video en mis propias redes?</span><span class="faq-icon">+</span></summary>
+                <div class="faq-answer"><p>Sí. Todos nuestros paquetes incluyen cesión de derechos de uso para tus canales propios (Instagram, TikTok, Facebook, YouTube) y para pauta publicitaria. No puedes revenderlo a terceros ni usarlo en televisión sin autorización adicional.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary><span>¿Qué métricas recibo después de la campaña?</span><span class="faq-icon">+</span></summary>
+                <div class="faq-answer"><p>Recibes un PDF con: visualizaciones totales, alcance único, interacciones (likes, comentarios, compartidos), porcentaje de audiencia nueva, y capturas de pantalla de las estadísticas nativas de cada plataforma. Todo verificable.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary><span>¿Trabajan con marcas fuera de República Dominicana?</span><span class="faq-icon">+</span></summary>
+                <div class="faq-answer"><p>Sí. Aunque nuestra base está en RD, nuestra audiencia alcanza toda LATAM y comunidades latinas en Estados Unidos. Trabajamos con marcas internacionales que quieran conectar con ese público.</p></div>
+            </details>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section class="portafolio" id="portafolio">
+        <div class="portafolio-header">
+            <span class="tag">Portafolio</span>
+            <h2 class="section-title">Trofeos de Alcance</h2>
+            <p class="portafolio-sub">Haz clic en cada carta para ver los resultados reales.</p>
+        </div>
+
+        <div class="carrusel-wrapper">
+            <button class="carrusel-btn carrusel-btn-prev" id="prevBtn" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="15,6 9,12 15,18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <div class="carrusel" id="carrusel">
+
+                <!-- CARTA 1: Shakira -->
+                <div class="carta-video" data-link="https://www.instagram.com/p/XXXXXXXXX/">
+                    <div class="carta-inner">
+                        <div class="carta-frente">
+                            <img src="Shakira.webp" alt="Shakira y su nuevo galán" class="carta-thumb">
+                            <div class="carta-overlay"></div>
+                            <div class="carta-play">▶</div>
+                            <div class="carta-hint">Ver resultados</div>
+                        </div>
+                        <div class="carta-reverso">
+                            <span class="carta-tipo">Instagram</span>
+                            <h3 class="carta-titulo">Shakira y su nuevo galán</h3>
+                            <div class="carta-stats">
+                                <div class="carta-stat"><span class="carta-stat-num">1.8M</span><span class="carta-stat-label">Vistas</span></div>
+                                <div class="carta-stat"><span class="carta-stat-num">57.8K</span><span class="carta-stat-label">Me gusta</span></div>
+                            </div>
+                            <a href="https://www.instagram.com/reel/DZ5eoXysrri/?hl=es" target="_blank" class="btn-carta" onclick="event.stopPropagation();">
+                                Ver Video Original
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTA 2: Ángela Aguilar TikTok -->
+                <div class="carta-video" data-link="https://www.tiktok.com/@fameo_studio/video/XXXXXXXXX">
+                    <div class="carta-inner">
+                        <div class="carta-frente">
+                            <img src="Angela5.webp" alt="Momentos de Ángela Aguilar" class="carta-thumb">
+                            <div class="carta-overlay"></div>
+                            <div class="carta-play">▶</div>
+                            <div class="carta-hint">Ver resultados</div>
+                        </div>
+                        <div class="carta-reverso">
+                            <span class="carta-tipo">TikTok</span>
+                            <h3 class="carta-titulo">Momentos de Ángela Aguilar</h3>
+                            <div class="carta-stats">
+                                <div class="carta-stat"><span class="carta-stat-num">5.3M</span><span class="carta-stat-label">Vistas</span></div>
+                                <div class="carta-stat"><span class="carta-stat-num">175.6K</span><span class="carta-stat-label">Me gusta</span></div>
+                            </div>
+                            <a href="https://www.tiktok.com/@fameo_studio/video/7613780587115040030" target="_blank" class="btn-carta" onclick="event.stopPropagation();">
+                                Ver Video Original
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTA 3: Ángela Aguilar YouTube -->
+                <div class="carta-video" data-link="https://www.youtube.com/shorts/XXXXXXXXX">
+                    <div class="carta-inner">
+                        <div class="carta-frente">
+                            <img src="Momentosangela.webp" alt="Momentos de Ángela Aguilar" class="carta-thumb">
+                            <div class="carta-overlay"></div>
+                            <div class="carta-play">▶</div>
+                            <div class="carta-hint">Ver resultados</div>
+                        </div>
+                        <div class="carta-reverso">
+                            <span class="carta-tipo">YouTube Short</span>
+                            <h3 class="carta-titulo">Momentos de Ángela Aguilar</h3>
+                            <div class="carta-stats">
+                                <div class="carta-stat"><span class="carta-stat-num">3.6M</span><span class="carta-stat-label">Vistas</span></div>
+                                <div class="carta-stat"><span class="carta-stat-num">104K</span><span class="carta-stat-label">Me gusta</span></div>
+                            </div>
+                            <a href="https://www.youtube.com/shorts/GKhWlvTnHqI" target="_blank" class="btn-carta" onclick="event.stopPropagation();">
+                                Ver Video Original
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTA 4: Cazzu -->
+                <div class="carta-video" data-link="https://www.threads.net/@fameostudio/post/XXXXXXXXX">
+                    <div class="carta-inner">
+                        <div class="carta-frente">
+                            <img src="Cazzu.webp" alt="Polémica de Cazzu" class="carta-thumb">
+                            <div class="carta-overlay"></div>
+                            <div class="carta-play">▶</div>
+                            <div class="carta-hint">Ver resultados</div>
+                        </div>
+                        <div class="carta-reverso">
+                            <span class="carta-tipo">Threads</span>
+                            <h3 class="carta-titulo">Polémica de Cazzu</h3>
+                            <div class="carta-stats">
+                                <div class="carta-stat"><span class="carta-stat-num">100K</span><span class="carta-stat-label">Vistas</span></div>
+                                <div class="carta-stat"><span class="carta-stat-num">1.7K</span><span class="carta-stat-label">Me gusta</span></div>
+                            </div>
+                            <a href="https://www.threads.com/share/Fo7IMUxiI/" target="_blank" class="btn-carta" onclick="event.stopPropagation();">
+                                Ver Post Original
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTA 5: Ángela y Nodal -->
+                <div class="carta-video" data-link="https://www.tiktok.com/@fameo_studio/video/XXXXXXXXX">
+                    <div class="carta-inner">
+                        <div class="carta-frente">
+                            <img src="AngelaNodal.webp" alt="Supuesta separación de Ángela y Nodal" class="carta-thumb">
+                            <div class="carta-overlay"></div>
+                            <div class="carta-play">▶</div>
+                            <div class="carta-hint">Ver resultados</div>
+                        </div>
+                        <div class="carta-reverso">
+                            <span class="carta-tipo">TikTok</span>
+                            <h3 class="carta-titulo">Supuesta separación de Ángela y Nodal</h3>
+                            <div class="carta-stats">
+                                <div class="carta-stat"><span class="carta-stat-num">4.2M</span><span class="carta-stat-label">Vistas</span></div>
+                                <div class="carta-stat"><span class="carta-stat-num">113.4K</span><span class="carta-stat-label">Me gusta</span></div>
+                            </div>
+                            <a href="https://www.tiktok.com/@fameo_studio/video/7630225966119292190" target="_blank" class="btn-carta" onclick="event.stopPropagation();">
+                                Ver Video Original
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carrusel-btn carrusel-btn-next" id="nextBtn" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="9,6 15,12 9,18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+   <section class="contacto" id="contacto">
+    <h2 class="section-title">Solicita tu Propuesta</h2>
+    <p class="contacto-sub">Revisaremos tu solicitud y te contactaremos en menos de 24 horas.</p>
+    <form class="formulario" id="formularioContacto" action="https://formspree.io/f/xkjonldr" method="POST">
+        <input type="text" name="marca" placeholder="Nombre de la marca" required>
+        <input type="email" name="email" placeholder="Correo corporativo" required>
+        <textarea name="mensaje" placeholder="Cuéntanos sobre tu campaña y presupuesto estimado..." required></textarea>
+        <input type="hidden" name="_subject" value="🚀 Nueva propuesta desde FameoStudio.com">
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="btn-primario">Enviar Propuesta</button>
+    </form>
+</section>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="logo.webp" alt="Fameo Studio">
+                </div>
+                <p class="footer-tagline">Más de 134 millones de visualizaciones en el entretenimiento de LATAM.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre">Quiénes Somos</a></li>
+                    <li><a href="#estadisticas">Métricas</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:contacto@fameostudio.com">contacto@fameostudio.com</a></li>
+                    <li><a href="#contacto">Solicitar Propuesta</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Redes</h4>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/fameostudio" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="url(#goldGradient)"/></svg></a>
+                    <a href="https://www.youtube.com/@FameoStudio" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="url(#goldGradient)" stroke-width="1.8"/><polygon points="10,9 10,15 15,12" fill="url(#goldGradient)"/></svg></a>
+                    <a href="https://www.tiktok.com/@fameo_studio" target="_blank" title="TikTok"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 3 C16 3 16.5 6 19 7 L19 10 C17.5 10 16 9 16 9 L16 15 C16 18.3 13.3 21 10 21 C6.7 21 4 18.3 4 15 C4 11.7 6.7 9 10 9 L10 12.2 C8.5 12.2 7.2 13.4 7.2 15 C7.2 16.6 8.5 17.8 10 17.8 C11.5 17.8 12.8 16.6 12.8 15 L12.8 3 Z" fill="url(#goldGradient)"/></svg></a>
+                    <a href="https://www.facebook.com/FameoStudio" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 8 L14 6 C14 5.2 14.5 5 15 5 L17 5 L17 2 L14.5 2 C12 2 11 3.5 11 5.5 L11 8 L9 8 L9 11 L11 11 L11 21 L14 21 L14 11 L16.5 11 L17 8 Z" fill="url(#goldGradient)"/></svg></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Fameo Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- MODAL DE ÉXITO (reemplaza la página de Formspree) -->
+<div class="modal-exito" id="modalExito">
+    <div class="modal-exito-overlay"></div>
+    <div class="modal-exito-content">
+        <!-- Corona decorativa -->
+        <div class="modal-exito-crown">
+            <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 60 L10 30 L25 45 L50 15 L75 45 L90 30 L90 60 Z" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="10" cy="25" r="5" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                <circle cx="50" cy="10" r="6" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                <circle cx="90" cy="25" r="5" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+                <rect x="8" y="58" width="84" height="8" rx="2" fill="url(#goldGradient)" stroke="#A87A1A" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <!-- Logo -->
+        <div class="modal-exito-logo">
+            <img src="logo.webp" alt="Fameo Studio">
+        </div>
+
+        <!-- Icono check de éxito -->
+        <div class="modal-exito-check">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="url(#goldGradient)" stroke-width="1.5"/>
+                <polyline points="7,12 10.5,15.5 17,9" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <!-- Texto -->
+        <h3 class="modal-exito-title">¡Propuesta Recibida!</h3>
+        <p class="modal-exito-text">
+            Gracias por confiar en <strong>Fameo Studio</strong>. Nuestro equipo revisará tu solicitud y te contactará en menos de <strong>24 horas</strong>.
+        </p>
+
+        <!-- Detalles -->
+        <div class="modal-exito-info">
+            <div class="modal-exito-item">
+                <span class="modal-exito-item-icon">✉️</span>
+                <span>Revisaremos tu correo</span>
+            </div>
+            <div class="modal-exito-item">
+                <span class="modal-exito-item-icon">📞</span>
+                <span>Te contactaremos pronto</span>
+            </div>
+            <div class="modal-exito-item">
+                <span class="modal-exito-item-icon">⚡</span>
+                <span>Respuesta en menos de 24h</span>
+            </div>
+        </div>
+
+        <!-- Botón volver -->
+        <button class="modal-exito-btn" id="modalExitoCerrar">
+            Volver al Inicio
+        </button>
+    </div>
+</div>
+</body>
+</html>
