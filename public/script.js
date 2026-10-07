@@ -1,9 +1,6 @@
 // ============================================
-<<<<<<< HEAD
-// FÁMEO STUDIO - SCRIPT DEFINITIVO (CORREGIDO)
-=======
-// FÁMEO STUDIO - SCRIPT DEFINITIVO
->>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
+// FÁMEO STUDIO - SCRIPT DEFINITIVO v4
+// Los números vienen del HTML (data-target)
 // ============================================
 console.log('🚀 Fameo Studio iniciando...');
 
@@ -33,7 +30,6 @@ function inyectarEstilos() {
         .reveal-delay-6 { transition-delay: 0.48s; }
     `;
     document.head.appendChild(estilos);
-    console.log('✅ Estilos inyectados');
 }
 inyectarEstilos();
 
@@ -65,7 +61,6 @@ function inicializarAnimaciones() {
         '.footer-brand', '.footer-col', '.footer-bottom'
     ];
 
-    let total = 0;
     elementosAnimar.forEach((selector) => {
         document.querySelectorAll(selector).forEach((el, index) => {
             if (el.classList.contains('reveal')) return;
@@ -73,11 +68,8 @@ function inicializarAnimaciones() {
             const delay = Math.min(index, 6);
             if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
             observer.observe(el);
-            total++;
         });
     });
-
-    console.log('✅ Animaciones listas:', total, 'elementos');
 }
 
 // ============================================
@@ -99,73 +91,22 @@ function inicializarHeroScroll() {
 }
 
 // ============================================
-<<<<<<< HEAD
-// 4. ESTADÍSTICAS — CORREGIDO
+// 4. CONTADORES (leen directo del HTML)
 // ============================================
-=======
-// 4. ESTADÍSTICAS
-// ============================================
-async function cargarEstadisticas() {
-    const fallback = { 
-        instagram: 13661733,
-        youtube: 58298531,
-        tiktok: 60200000,
-        threads: 787000,
-        facebook: 1800000
-    };
-    
-    let mapaStats = fallback;
-    
-    try {
-        const respuesta = await fetch('/api/stats');
-        const stats = await respuesta.json();
-        mapaStats = {
-            instagram: stats.instagram?.vistas || fallback.instagram,
-            youtube: stats.youtube?.vistas || fallback.youtube,
-            tiktok: stats.tiktok?.vistas || fallback.tiktok,
-            threads: stats.threads?.vistas || fallback.threads,
-            facebook: stats.facebook?.vistas || fallback.facebook
-        };
-        console.log('✅ Estadísticas del backend');
-    } catch (error) {
-        console.log('⚠️ Backend offline, usando fallback');
-    }
-    
-    document.querySelectorAll('.stat-card').forEach(card => {
-        const plataforma = card.querySelector('h3').textContent.toLowerCase().trim();
-        const numeroEl = card.querySelector('.numero');
-        if (mapaStats[plataforma]) {
-            numeroEl.setAttribute('data-target', mapaStats[plataforma]);
-        }
-    });
-}
-
->>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
 function iniciarContadores() {
     const statsSection = document.querySelector('.estadisticas');
     if (!statsSection) return;
     
-<<<<<<< HEAD
-    let contadoresIniciados = false;
+    let yaIniciados = false;
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting && !contadoresIniciados) {
-                contadoresIniciados = true;
+            if (entry.isIntersecting && !yaIniciados) {
+                yaIniciados = true;
                 
                 document.querySelectorAll('.numero').forEach((contador) => {
                     const target = +contador.getAttribute('data-target');
-                    if (!target) return;
-=======
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                document.querySelectorAll('.numero').forEach((contador) => {
-                    if (contador.dataset.animado) return;
-                    const target = +contador.getAttribute('data-target');
-                    if (!target) return;
-                    contador.dataset.animado = 'true';
->>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
+                    if (!target || target === 0) return;
                     
                     const duracion = 1800;
                     const pasos = 50;
@@ -182,10 +123,7 @@ function iniciarContadores() {
                         }
                     }, duracion / pasos);
                 });
-<<<<<<< HEAD
                 
-=======
->>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
                 observer.disconnect();
             }
         });
@@ -194,50 +132,6 @@ function iniciarContadores() {
     observer.observe(statsSection);
 }
 
-<<<<<<< HEAD
-async function cargarEstadisticas() {
-    const fallback = { 
-        instagram: 13661733,
-        youtube: 58298531,
-        tiktok: 60200000,
-        threads: 787000,
-        facebook: 1800000
-    };
-    
-    let mapaStats = fallback;
-    
-    try {
-        const respuesta = await fetch('/api/stats');
-        if (!respuesta.ok) throw new Error('Backend no responde');
-        const stats = await respuesta.json();
-        mapaStats = {
-            instagram: stats.instagram?.vistas || fallback.instagram,
-            youtube: stats.youtube?.vistas || fallback.youtube,
-            tiktok: stats.tiktok?.vistas || fallback.tiktok,
-            threads: stats.threads?.vistas || fallback.threads,
-            facebook: stats.facebook?.vistas || fallback.facebook
-        };
-        console.log('✅ Estadísticas del backend');
-    } catch (error) {
-        console.log('⚠️ Backend offline, usando fallback');
-    }
-    
-    // Setear data-target ANTES de iniciar contadores
-    document.querySelectorAll('.stat-card').forEach(card => {
-        const plataforma = card.querySelector('h3').textContent.toLowerCase().trim();
-        const numeroEl = card.querySelector('.numero');
-        if (mapaStats[plataforma]) {
-            numeroEl.setAttribute('data-target', mapaStats[plataforma]);
-        }
-    });
-    
-    // ⚡ AHORA SÍ: iniciar contadores DESPUÉS de setear los data-target
-    iniciarContadores();
-    console.log('✅ Contadores iniciados con datos reales');
-}
-
-=======
->>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
 // ============================================
 // 5. FORMULARIO CON FORMSPREE + MODAL PROPIO
 // ============================================
@@ -388,16 +282,8 @@ document.querySelectorAll('.carta-video').forEach((carta) => {
 // ============================================
 window.addEventListener('load', () => {
     console.log('📄 Página cargada');
-<<<<<<< HEAD
     inicializarAnimaciones();
     inicializarHeroScroll();
-    // ⚡ Cargar estadísticas (esto internamente llama a iniciarContadores)
-    cargarEstadisticas();
-=======
-    cargarEstadisticas();
     iniciarContadores();
-    inicializarAnimaciones();
-    inicializarHeroScroll();
->>>>>>> bae2318ba1499b5630ee52f215fd04bf75944cb0
-    console.log('✅ Listo');
+    console.log('✅ Listo — Números leídos del HTML');
 });
