@@ -1940,3 +1940,53 @@ body.modal-abierto {
 .modal-exito-logo img {
     mix-blend-mode: lighten;
 }
+/* ============================================
+   ENLACES A LA PÁGINA DE REDES
+   ============================================ */
+
+/* Navbar: enlace "Redes" con estilo especial */
+.nav-link-redes {
+    color: var(--gold-bright) !important;
+    position: relative;
+}
+
+.nav-link-redes::after {
+    background: linear-gradient(90deg, transparent, var(--gold-bright), transparent) !important;
+}
+
+/* Footer: botón "Ver todas las redes" */
+.footer-link-redes {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    text-decoration: none;
+    border: 1px solid var(--gold-mid);
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.footer-link-redes:hover {
+    background: var(--gold-mid);
+    color: #1a1a1a;
+    box-shadow: 0 0 25px rgba(232, 184, 58, 0.5);
+    transform: translateX(4px);
+}
+
+.footer-link-redes svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s;
+}
+
+.footer-link-redes:hover svg {
+    transform: translateX(3px);
+}
