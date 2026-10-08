@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Oficial | Fameo Studio</title>
+    <meta name="description" content="Documentación corporativa de Fameo Studio. Misión, visión, valores y proceso de colaboración con marcas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ============================================
+           ESTILOS ESPECÍFICOS DE LA PÁGINA DE DOCUMENTACIÓN
+           ============================================ */
+        body {
+            background: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        /* Barra superior */
+        .doc-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .doc-topbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .doc-topbar-logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px var(--accent-glow);
+            background-image: url('logo.webp');
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .doc-topbar-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .doc-topbar-back {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            text-decoration: none;
+            border: 1px solid var(--gold-mid);
+            padding: 9px 18px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-topbar-back:hover {
+            background: var(--gold-mid);
+            color: #1a1a1a;
+            box-shadow: 0 0 20px rgba(232, 184, 58, 0.5);
+        }
+
+        .doc-topbar-back svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* HERO de documentación */
+        .doc-hero {
+            padding: 80px 5% 60px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(232, 184, 58, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .doc-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .doc-hero-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            border: 1px solid var(--gold-mid);
+            padding: 6px 16px;
+            border-radius: 100px;
+            background: rgba(232, 184, 58, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .doc-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5D76E 40%, #D4AF37 70%, #8B6914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .doc-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .doc-hero-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-mute);
+        }
+
+        .doc-hero-meta svg {
+            width: 14px;
+            height: 14px;
+            color: var(--gold-mid);
+        }
+
+        /* LAYOUT con sidebar */
+        .doc-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 60px;
+            padding: 60px 5%;
+            position: relative;
+        }
+
+        /* Sidebar índice */
+        .doc-sidebar {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .doc-sidebar-title {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            margin-bottom: 20px;
+        }
+
+        .doc-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-left: 1px solid var(--border);
+        }
+
+        .doc-nav li {
+            position: relative;
+        }
+
+        .doc-nav a {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-sec);
+            text-decoration: none;
+            padding: 10px 0 10px 20px;
+            border-left: 2px solid transparent;
+            margin-left: -1px;
+            transition: all 0.3s;
+        }
+
+        .doc-nav a:hover,
+        .doc-nav a.activo {
+            color: var(--gold-bright);
+            border-left-color: var(--gold-mid);
+            padding-left: 24px;
+        }
+
+        /* Contenido principal */
+        .doc-content {
+            min-width: 0;
+            max-width: 800px;
+        }
+
+        /* Sección */
+        .doc-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+
+        .doc-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .doc-section-number {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-mid);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .doc-section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-section p {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .doc-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .doc-section strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .doc-section em {
+            color: var(--gold-bright);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Listas */
+        .doc-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .doc-list li {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.6;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .doc-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD966 0%, #E8B83A 100%);
+            box-shadow: 0 0 10px rgba(232, 184, 58, 0.5);
+        }
+
+        /* Tarjetas de valores */
+        .doc-valores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .doc-valor {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px 22px;
+            transition: all 0.3s;
+        }
+
+        .doc-valor:hover {
+            border-color: var(--gold-mid);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(232, 184, 58, 0.1);
+        }
+
+        .doc-valor-nombre {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            margin-bottom: 8px;
+        }
+
+        .doc-valor-desc {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Tarjetas de "qué ofrecemos" */
+        .doc-ofrecemos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .doc-ofrecemos-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 25px;
+        }
+
+        .doc-ofrecemos-card.destacado {
+            border-color: var(--gold-deep);
+            background: linear-gradient(180deg, rgba(232, 184, 58, 0.06) 0%, var(--card-bg) 40%);
+        }
+
+        .doc-ofrecemos-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .doc-ofrecemos-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .doc-ofrecemos-card ul li {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.5;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .doc-ofrecemos-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--gold-mid);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Métricas */
+        .doc-metricas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .doc-metrica {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+        }
+
+        .doc-metrica-num {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(180deg, #FFF4B8 0%, #FFD966 50%, #E8B83A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .doc-metrica-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-mute);
+        }
+
+        /* Pasos del proceso */
+        .doc-pasos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .doc-paso {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 22px 25px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .doc-paso:hover {
+            border-color: var(--gold-mid);
+            transform: translateX(4px);
+        }
+
+        .doc-paso-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD966 0%, #E8B83A 100%);
+            color: #1a1a1a;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(232, 184, 58, 0.4);
+        }
+
+        .doc-paso-content h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-paso-content p {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* FAQ */
+        .doc-faq {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .doc-faq details {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .doc-faq details[open] {
+            border-color: var(--gold-deep);
+            background: linear-gradient(180deg, rgba(232, 184, 58, 0.03) 0%, var(--card-bg) 100%);
+        }
+
+        .doc-faq details:hover {
+            border-color: var(--gold-mid);
+        }
+
+        .doc-faq summary {
+            padding: 18px 22px;
+            cursor: pointer;
+            list-style: none;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .doc-faq summary::-webkit-details-marker { display: none; }
+
+        .doc-faq summary::after {
+            content: '+';
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--gold-mid);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .doc-faq details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .doc-faq details[open] summary {
+            color: var(--gold-bright);
+        }
+
+        .doc-faq p {
+            padding: 0 22px 18px 22px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.7;
+            margin: 0;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        /* Contacto corporativo */
+        .doc-contacto {
+            background: linear-gradient(180deg, rgba(232, 184, 58, 0.04) 0%, var(--card-bg) 100%);
+            border: 1px solid var(--gold-deep);
+            border-radius: 16px;
+            padding: 35px 30px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .doc-contacto h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .doc-contacto p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-sec);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .doc-contacto-email {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold-bright);
+            text-decoration: none;
+            border: 1px solid var(--gold-mid);
+            padding: 14px 28px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .doc-contacto-email:hover {
+            background: var(--gold-mid);
+            color: #1a1a1a;
+            box-shadow: 0 0 30px rgba(232, 184, 58, 0.5);
+        }
+
+        /* Footer de la página */
+        .doc-footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .doc-footer p {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin: 0;
+        }
+
+        .doc-footer p strong {
+            color: var(--gold-bright);
+            font-weight: 600;
+        }
+
+        /* Aviso de actualización */
+        .doc-update-notice {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(232, 184, 58, 0.06);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin-top: 20px;
+        }
+
+        .doc-update-notice svg {
+            width: 12px;
+            height: 12px;
+            color: var(--gold-mid);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .doc-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 5%;
+            }
+
+            .doc-sidebar {
+                position: relative;
+                top: 0;
+                max-height: none;
+                padding: 25px;
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+            }
+
+            .doc-nav {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 8px;
+                border-left: none;
+            }
+
+            .doc-nav a {
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                padding: 8px 12px;
+                text-align: center;
+                background: rgba(232, 184, 58, 0.03);
+                border-radius: 6px;
+            }
+
+            .doc-nav a:hover,
+            .doc-nav a.activo {
+                border-left: none;
+                border-bottom-color: var(--gold-mid);
+                padding-left: 12px;
+            }
+
+            .doc-ofrecemos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .doc-topbar {
+                padding: 12px 20px;
+            }
+
+            .doc-topbar-title {
+                font-size: 1rem;
+            }
+
+            .doc-topbar-back span {
+                display: none;
+            }
+
+            .doc-hero {
+                padding: 50px 20px 40px 20px;
+            }
+
+            .doc-layout {
+                padding: 30px 20px;
+            }
+
+            .doc-section {
+                margin-bottom: 60px;
+            }
+
+            .doc-paso {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .doc-paso-num {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG de degradados -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFF4B8"/>
+                <stop offset="30%" stop-color="#FFD966"/>
+                <stop offset="60%" stop-color="#E8B83A"/>
+                <stop offset="100%" stop-color="#A87A1A"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- TOPBAR -->
+    <div class="doc-topbar">
+        <a href="/" class="doc-topbar-logo">
+            <div class="doc-topbar-logo-img"></div>
+            <span class="doc-topbar-title">Fameo Studio</span>
+        </a>
+        <a href="/" class="doc-topbar-back">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="15,18 9,12 15,6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Volver a la web</span>
+        </a>
+    </div>
+
+    <!-- HERO -->
+    <section class="doc-hero">
+        <div class="doc-hero-content">
+            <span class="doc-hero-badge">Documentación Oficial</span>
+            <h1 class="doc-hero-title">Información Corporativa</h1>
+            <p class="doc-hero-sub">
+                Documento público con información oficial sobre Fameo Studio: quiénes somos, qué hacemos, cómo trabajamos y qué ofrecemos a nuestras marcas aliadas.
+            </p>
+            <div class="doc-hero-meta">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="12,6 12,12 16,14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span>Última actualización: Enero 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYOUT con sidebar -->
+    <div class="doc-layout">
+
+        <!-- Sidebar índice -->
+        <aside class="doc-sidebar">
+            <div class="doc-sidebar-title">Índice</div>
+            <ul class="doc-nav">
+                <li><a href="#quienes-somos">1. Quiénes somos</a></li>
+                <li><a href="#mision">2. Misión</a></li>
+                <li><a href="#vision">3. Visión</a></li>
+                <li><a href="#valores">4. Valores</a></li>
+                <li><a href="#ofrecemos">5. Qué ofrecemos</a></li>
+                <li><a href="#numeros">6. Nuestros números</a></li>
+                <li><a href="#proceso">7. Cómo trabajamos</a></li>
+                <li><a href="#faq">8. Preguntas frecuentes</a></li>
+                <li><a href="#contacto">9. Contacto</a></li>
+            </ul>
+        </aside>
+
+        <!-- Contenido -->
+        <main class="doc-content">
+
+            <!-- 1. QUIÉNES SOMOS -->
+            <section class="doc-section" id="quienes-somos">
+                <span class="doc-section-number">01 / Quiénes Somos</span>
+                <h2 class="doc-section-title">Quiénes Somos</h2>
+                <p>
+                    <strong>Fameo Studio</strong> es una marca digital de medios especializada en farándula, entretenimiento y espectáculos en el mercado hispanohablante. Operamos exclusivamente a través de plataformas digitales —Instagram, TikTok, YouTube, Facebook y Threads— donde producimos y distribuimos contenido de alta viralidad sobre las historias más relevantes del mundo del espectáculo en Latinoamérica.
+                </p>
+                <p>
+                    A diferencia de los medios tradicionales, nuestra operación está diseñada desde el inicio para el entorno digital. Producimos contenido optimizado para cada plataforma, con narrativas adaptadas a los formatos que dominan el consumo actual: <em>Reels, Shorts, TikToks e hilos virales</em>.
+                </p>
+                <p>
+                    Nuestro enfoque combina <strong>velocidad de publicación</strong> con <strong>precisión informativa</strong>, un balance difícil de lograr en la industria del entretenimiento, donde la mayoría de los medios sacrifican una por la otra.
+                </p>
+            </section>
+
+            <!-- 2. MISIÓN -->
+            <section class="doc-section" id="mision">
+                <span class="doc-section-number">02 / Misión</span>
+                <h2 class="doc-section-title">Nuestra Misión</h2>
+                <p>
+                    <em>Informar y entretener a la audiencia hispanohablante con las historias más relevantes de la farándula y el espectáculo, mientras conectamos a las marcas con el público correcto a través de contenido viral y verificable.</em>
+                </p>
+                <p>
+                    Nuestra misión tiene dos frentes inseparables:
+                </p>
+                <ul class="doc-list">
+                    <li><strong>Para la audiencia:</strong> Ofrecer entretenimiento diario, actualizado y sin filtros sobre el mundo del espectáculo, con contenido gratuito, accesible y producido con estándares profesionales.</li>
+                    <li><strong>Para las marcas:</strong> Servir como el vehículo publicitario más eficiente para conectar con audiencias frescas y apasionadas por el entretenimiento, con métricas transparentes y resultados verificables.</li>
+                </ul>
+            </section>
+
+            <!-- 3. VISIÓN -->
+            <section class="doc-section" id="vision">
+                <span class="doc-section-number">03 / Visión</span>
+                <h2 class="doc-section-title">Nuestra Visión</h2>
+                <p>
+                    <em>Ser el medio de entretenimiento #1 de República Dominicana y una referencia obligada en LATAM, con una comunidad multiplataforma de más de 500 millones de visualizaciones anuales y alianzas consolidadas con marcas líderes de la región.</em>
+                </p>
+                <p>
+                    Trabajamos hacia un futuro donde <strong>Fameo Studio sea sinónimo de entretenimiento confiable</strong> en el mundo hispanohablante, expandiendo nuestra operación a nuevas plataformas y formatos, y estableciéndonos como el socio estratégico preferido de las marcas que quieren conectar con la audiencia latina.
+                </p>
+            </section>
+
+            <!-- 4. VALORES -->
+            <section class="doc-section" id="valores">
+                <span class="doc-section-number">04 / Valores</span>
+                <h2 class="doc-section-title">Nuestros Valores</h2>
+                <p>
+                    Estos cinco valores guían cada decisión editorial, comercial y operativa de Fameo Studio. No son negociables.
+                </p>
+
+                <div class="doc-valores">
+                    <div class="doc-valor">
+                        <div class="doc-valor-nombre">Veracidad</div>
+                        <p class="doc-valor-desc">Verificamos antes de publicar. Preferimos perder una primicia antes que difundir información sin fuente confiable.</p>
+                    </div>
+                    <div class="doc-valor">
+                        <div class="doc-valor-nombre">Velocidad</div>
+                        <p class="doc-valor-desc">Si algo pasa, lo cubrimos antes que nadie. La inmediatez es nuestra ventaja competitiva.</p>
+                    </div>
+                    <div class="doc-valor">
+                        <div class="doc-valor-nombre">Transparencia</div>
+                        <p class="doc-valor-desc">Métricas claras, sin humo. Reportes reales y verificables para cada marca que colabora con nosotros.</p>
+                    </div>
+                    <div class="doc-valor">
+                        <div class="doc-valor-nombre">Respeto</div>
+                        <p class="doc-valor-desc">Ni con las celebridades ni con nuestra audiencia. Informamos sin cruzar líneas éticas.</p>
+                    </div>
+                    <div class="doc-valor">
+                        <div class="doc-valor-nombre">Profesionalismo</div>
+                        <p class="doc-valor-desc">Trato serio y responsable con cada marca que confía en nosotros. Cumplimos lo que prometemos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. QUÉ OFRECEMOS -->
+            <section class="doc-section" id="ofrecemos">
+                <span class="doc-section-number">05 / Qué Ofrecemos</span>
+                <h2 class="doc-section-title">Qué Ofrecemos</h2>
+                <p>
+                    Nuestra propuesta de valor se divide en dos: lo que entregamos a la audiencia y lo que entregamos a las marcas que colaboran con nosotros.
+                </p>
+
+                <div class="doc-ofrecemos">
+                    <div class="doc-ofrecemos-card">
+                        <h3 class="doc-ofrecemos-title">A la Audiencia</h3>
+                        <ul>
+                            <li>Entretenimiento diario actualizado</li>
+                            <li>Historias que otros medios ignoran</li>
+                            <li>Cobertura rápida de la farándula latina</li>
+                            <li>Contenido gratuito en 5 plataformas</li>
+                            <li>Información verificada y sin sensacionalismo</li>
+                        </ul>
+                    </div>
+                    <div class="doc-ofrecemos-card destacado">
+                        <h3 class="doc-ofrecemos-title">A las Marcas</h3>
+                        <ul>
+                            <li>Acceso a una audiencia de 134M+ visualizaciones</li>
+                            <li>Alcance a público fresco (98% no seguidores)</li>
+                            <li>Producción profesional sin complicaciones</li>
+                            <li>Resultados medibles y transparentes</li>
+                            <li>Colaboraciones puntuales o continuas</li>
+                            <li>Reportes verificables a los 7 días</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. NÚMEROS -->
+            <section class="doc-section" id="numeros">
+                <span class="doc-section-number">06 / Nuestros Números</span>
+                <h2 class="doc-section-title">Nuestros Números</h2>
+                <p>
+                    Métricas verificables de nuestra operación multiplataforma. Los datos se actualizan periódicamente y reflejan el alcance acumulado de Fameo Studio en todas las plataformas donde operamos.
+                </p>
+
+                <div class="doc-metricas">
+                    <div class="doc-metrica">
+                        <span class="doc-metrica-num">134M+</span>
+                        <span class="doc-metrica-label">Visualizaciones</span>
+                    </div>
+                    <div class="doc-metrica">
+                        <span class="doc-metrica-num">5</span>
+                        <span class="doc-metrica-label">Plataformas</span>
+                    </div>
+                    <div class="doc-metrica">
+                        <span class="doc-metrica-num">98.1%</span>
+                        <span class="doc-metrica-label">No seguidores</span>
+                    </div>
+                    <div class="doc-metrica">
+                        <span class="doc-metrica-num">LATAM</span>
+                        <span class="doc-metrica-label">Cobertura</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 25px;">
+                    Nuestra audiencia principal se concentra en <strong>República Dominicana, Estados Unidos (comunidad latina) y el resto de Latinoamérica</strong>, con un perfil mayoritariamente compuesto por personas entre 18 y 45 años, interesadas en el mundo del espectáculo y el entretenimiento.
+                </p>
+            </section>
+
+            <!-- 7. CÓMO TRABAJAMOS -->
+            <section class="doc-section" id="proceso">
+                <span class="doc-section-number">07 / Cómo Trabajamos</span>
+                <h2 class="doc-section-title">Cómo Trabajamos</h2>
+                <p>
+                    Nuestro proceso de colaboración con marcas está diseñado para ser simple, transparente y eficiente. Cada colaboración sigue estos cuatro pasos:
+                </p>
+
+                <div class="doc-pasos">
+                    <div class="doc-paso">
+                        <div class="doc-paso-num">1</div>
+                        <div class="doc-paso-content">
+                            <h4>Solicitud inicial</h4>
+                            <p>La marca envía su propuesta a través del formulario de contacto con información sobre objetivos, presupuesto estimado y expectativas de colaboración.</p>
+                        </div>
+                    </div>
+                    <div class="doc-paso">
+                        <div class="doc-paso-num">2</div>
+                        <div class="doc-paso-content">
+                            <h4>Propuesta personalizada</h4>
+                            <p>En menos de 24 horas hábiles, respondemos con una propuesta adaptada al presupuesto y objetivos de la marca, incluyendo formatos sugeridos y cronograma.</p>
+                        </div>
+                    </div>
+                    <div class="doc-paso">
+                        <div class="doc-paso-num">3</div>
+                        <div class="doc-paso-content">
+                            <h4>Producción y publicación</h4>
+                            <p>Una vez aprobada la propuesta, producimos el contenido en un plazo de 5 a 10 días hábiles. La marca tiene derecho a revisar el guion antes de la publicación final.</p>
+                        </div>
+                    </div>
+                    <div class="doc-paso">
+                        <div class="doc-paso-num">4</div>
+                        <div class="doc-paso-content">
+                            <h4>Reporte de resultados</h4>
+                            <p>Después de la publicación, enviamos un reporte con métricas verificables: vistas, alcance, interacción, capturas de pantalla y análisis del rendimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. FAQ -->
+            <section class="doc-section" id="faq">
+                <span class="doc-section-number">08 / Preguntas Frecuentes</span>
+                <h2 class="doc-section-title">Preguntas Frecuentes</h2>
+
+                <div class="doc-faq">
+                    <details>
+                        <summary>¿Fameo Studio es una empresa formalmente registrada?</summary>
+                        <p>Fameo Studio opera actualmente como marca digital de medios. Para consultas específicas sobre facturación, contratos o registro fiscal, escríbenos a contacto@fameostudio.com y evaluamos opciones según tu país y régimen fiscal.</p>
+                    </details>
+                    <details>
+                        <summary>¿Cómo puedo verificar las métricas que reportan?</summary>
+                        <p>Todas nuestras métricas son verificables. Entregamos capturas de pantalla de las estadísticas nativas de cada plataforma (Instagram Insights, YouTube Studio, TikTok Analytics, etc.) como parte del reporte de cada campaña.</p>
+                    </details>
+                    <details>
+                        <summary>¿Trabajan con marcas fuera de República Dominicana?</summary>
+                        <p>Sí. Aunque nuestra base está en RD, nuestra audiencia alcanza toda LATAM y comunidades latinas en Estados Unidos. Trabajamos con marcas internacionales que quieran conectar con ese público.</p>
+                    </details>
+                    <details>
+                        <summary>¿Cuánto cuesta colaborar con Fameo Studio?</summary>
+                        <p>Los precios varían según el formato (mención, video dedicado o campaña mensual), la duración y los objetivos de cada marca. Escríbenos con tu presupuesto estimado y te enviamos una propuesta personalizada sin compromiso en menos de 24 horas.</p>
+                    </details>
+                    <details>
+                        <summary>¿Qué pasa si necesito cancelar una campaña ya aprobada?</summary>
+                        <p>Las condiciones de cancelación se establecen en el contrato de cada colaboración. Cada caso se evalúa según el avance de producción y el cronograma acordado.</p>
+                    </details>
+                    <details>
+                        <summary>¿Con qué frecuencia actualizan su documentación?</summary>
+                        <p>Este documento se revisa y actualiza al menos una vez al año, o antes si hay cambios significativos en nuestra operación, métricas principales o proceso de colaboración.</p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 9. CONTACTO -->
+            <section class="doc-section" id="contacto">
+                <span class="doc-section-number">09 / Contacto Corporativo</span>
+                <h2 class="doc-section-title">Contacto Corporativo</h2>
+                <p>
+                    Para propuestas de colaboración, alianzas comerciales, prensa o cualquier consulta profesional, este es nuestro canal oficial:
+                </p>
+
+                <div class="doc-contacto">
+                    <h3>Escríbenos</h3>
+                    <p>Respondemos a todas las solicitudes profesionales en menos de 24 horas hábiles.</p>
+                    <a href="mailto:contacto@fameostudio.com" class="doc-contacto-email">
+                        contacto@fameostudio.com
+                    </a>
+                </div>
+
+                <div style="text-align: center;">
+                    <span class="doc-update-notice">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16" r="0.8" fill="currentColor"/></svg>
+                        Documento actualizado: Enero 2026
+                    </span>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <p>© 2026 <strong>Fameo Studio</strong>. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT: navegación activa en el sidebar -->
+    <script>
+        // Detectar la sección visible y marcar el enlace correspondiente
+        const secciones = document.querySelectorAll('.doc-section');
+        const navLinks = document.querySelectorAll('.doc-nav a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navLinks.forEach((link) => {
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('activo');
+                        } else {
+                            link.classList.remove('activo');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        });
+
+        secciones.forEach((sec) => observer.observe(sec));
+
+        // Scroll suave al hacer clic en el índice
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    const y = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
